@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<style>
+.btn:not(.custom) {
+	width:200px;
+	background-color: #979ca1;
+    border-color: #979ca1;
+}
+.input-group-append, inputCstm {
+	display:inline-block;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<hr>
+Nota de informare cu privire la procesarea datelor cu caracter personal
+<hr>
+<div class="row">
+	<div class="col-sm-3">  
+		<input id="nameField" type="text" class="form-control " placeholder="Nume Prenume">
+	</div>
+	<div class="col-sm-3">
+		<button class="btn btn-success custom" type="button" id="saveBtn" onclick="setNameData()">Save</button>
+	</div>
+</div>
+<Br></Br>
+<div class="row">
+	<div class="col-sm-3">  
+		<input id="nameField" type="text" class="form-control " placeholder="Browser">
+	</div>
+	<div class="col-sm-3">
+		<button class="btn btn-success custom" type="button" id="saveBtn2" onclick="setBrowser()">Save</button>
+	</div>
+</div>
+<br><br><br>
+Cookies Data<br>
+ 	Nume prenume: <b><span id="nameCookie"></span></b><br>
+	Browser: <b><span id="browserCookie"></span></b><br>
+	OS: <b><span id="detectOS"></span></b><br>
+
+<hr>
+<div class="nota" style="text-align:center; padding:0 200px 200px 200px">
+<button id="titluInfo" class="btn btn-outline-secondary custom">Notă de informare privind prelucrarea datelor cu caracter personal de către UTCN</button>
+
+<div id="gdpr"><br><br><br>
+Deoarece protecția datelor cu caracter personal este deosebit de importantă, dorim să vă informăm când și de ce noi, Universitatea Tehnică din Cluj-napoca  cu sediul în Cluj-Napoca,Strada Memorandumului 28, Cluj-Napoca 400114(UTCN, noi), în calitate de operator, vă prelucrăm datele cu caracter personal, care sunt drepturile dumneavoastră în calitate de persoană vizată, dar și modul în care vă puteți exercita aceste drepturi. Atunci când vă prelucrăm datele cu caracter personal, acționăm responsabil și cu respectarea legislației europene și naționale în materia protecției datelor cu caracter personal, inclusiv a Regulamentului (UE) 2016/679 al Parlamentului European și al Consiliului din 27 aprilie 2016 privind protecția persoanelor fizice în ceea ce privește prelucrarea datelor cu caracter personal și privind libera circulație a acestor date și de abrogare a Directivei 95/46/CE (GDPR). Vom depune toate eforturile rezonabile pentru a vă proteja datele cu caracter personal aflate în posesia sau sub controlul nostru prin stabilirea unor măsuri rezonabile de securitate în vederea prevenirii, accesării, colectării, utilizării, divulgării, copierii, modificării sau ștergerii neautorizate, precum și a altor riscuri similare. 
+Informaţiile înregistrate sunt destinate utilizării de către operatorul pentru întocmirea actelor în cadrul programului ERASMUS.
+Menționăm ca reținerea datelor cu caracter personal în instituție are rolul de a putea furniza către titularul datelor, la cerere, informații privind perioada de școlarizare petrecută în cadrul instituției și după finalizarea acestei perioade de instruire și se supune suplimentar temeiului legal aplicabil în România furnizat de OM Nr. 657 / 24.11.2014 privind regimul actelor de studii în sistemul de învățământ superior cu completările ulterioare.
+
+Datele deținute la nivelul sistemelor informatice din Universitatea Tehnică din Cluj-Napoca nu sunt comunicate unor terțe părți decât în cazul în care există solicitări venite conform unui temei legal furnizat de instituții ale statului român sau pentru îndeplinirea obligațiilor contractuale dintre dumneavoastră ca student / cursant și Universitatea Tehnică din Cluj-Napoca ca furnizor de servicii educaționale.
+
+Conform procedurilor existente, Universitatea Tehnică din Cluj-Napoca oferă posesorului datelor personale, prin intermediul departamentelor de specialitate, informații cu privire la toate datele deținute și, dacă este cazul, șterge datele, corectează datele incorecte, furnizează un format portabil al datelor, se asigură de restricționarea procesării, ține cont de opoziția în prelucrarea automată a datelor sau motivată de o situație particulară întemeiată și care nu contravine unor motive legitime
+
+La nivel național respectarea drepturilor persoanelor cu privire la datele cu caracter personal este monitorizată de Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal, <a href="www.dataprotection.ro">www.dataprotection.ro</a>.
+
+<hr>
+<br><br>
+<a target="blank" href="https://didatec-my.sharepoint.com/:w:/r/personal/mindru_da_andrei_utcluj_didatec_ro/Documents/DPIA.docx?d=w22b0820630f64f35b80a2ade69b3a446&csf=1&web=1&e=9A0Tnk">
+	<button class="btn btn-warning">Analiza DPIA</button>
+</a>
+</div>
+</div>
+</body>
+
+<script> 
+
+	function setNameData(){
+		let element = document.getElementById('nameField');
+		document.cookie = "data="+element.value;
+		let btn1 = document.getElementById('saveBtn');
+		document.getElementById('nameCookie').innerHTML=element.value;
+	}
+
+	function setBrowser(){
+		let element = document.getElementById('browserField');
+		document.cookie = "data="+element.value;
+		let btn2 = document.getElementById('saveBtn2');
+		document.getElementById('browserCookie').innerHTML=element.value;
+	}	
+
+	var OSName = "Unknown";
+	if (window.navigator.userAgent.indexOf("Windows NT 10.0")!= -1) OSName="Windows 10";
+	if (window.navigator.userAgent.indexOf("Windows NT 6.2") != -1) OSName="Windows 8";
+	if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1) OSName="Windows 7";
+	if (window.navigator.userAgent.indexOf("Mac")            != -1) OSName="Mac/iOS";
+	if (window.navigator.userAgent.indexOf("X11")            != -1) OSName="UNIX";
+	if (window.navigator.userAgent.indexOf("Linux")          != -1) OSName="Linux";
+	document.cookie = "operating-system="+OSName;
+	document.getElementById('detectOS').innerHTML=OSName;
+</script>
+</html>
